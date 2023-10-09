@@ -11,7 +11,7 @@ using SIGEDESP_PI.Data;
 namespace SIGEDESP_PI.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20231009110922_CriarBanco")]
+    [Migration("20231009131654_CriarBanco")]
     partial class CriarBanco
     {
         /// <inheritdoc />
