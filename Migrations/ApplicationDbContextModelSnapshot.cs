@@ -37,6 +37,23 @@ namespace SIGEDESP_PI.Migrations
 
                     b.ToTable("Instituicao");
                 });
+
+            modelBuilder.Entity("SIGEDESP_PI.Models.TipoDespesaModel", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Descricao")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("TipoDespesa");
+                });
 #pragma warning restore 612, 618
         }
     }
