@@ -1,0 +1,30 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@model InstituicaoModel
+@{
+    ViewData["title"] = "Cadastrar Tipo Instituição";
+}
+
+<div class="container bg-dark p-5 rounded-5">
+
+    <div class="mb-5 text-center">
+        <h1 class="text-light">Cadastro do Tipo Instituição</h1>
+    </div>
+
+<form method="post" asp-controller="Instituicao" asp-action="Cadastrar">
+    <div class="form-group">
+        <label for="Descricao" class="text-light">Descrição</label>
+        <input type="text" class="form-control" asp-for="Descricao" id="Descricao" placeholder="Qual é o tipo da Instituição?">
+        <span class="text-danger" asp-validation-for="Descricao"></span>
+    </div>
+
+    <div class="d-flex gap-5 mt-5">
+        <button type="submit" class="btn btn-success w-50">Enviar</button>
+        <a class="btn btn-primary w-50" asp-controller="Instituicao" asp-action="Index" >Voltar</a>
+    </div>
+</form>
+</div>
