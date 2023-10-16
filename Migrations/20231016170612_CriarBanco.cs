@@ -36,6 +36,20 @@ namespace SIGEDESP_PI.Migrations
                 {
                     table.PrimaryKey("PK_TipoDespesa", x => x.Id);
                 });
+
+            migrationBuilder.CreateTable(
+                name: "UnidadeMedida",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    Descricao = table.Column<string>(type: "text", nullable: false),
+                    Abreviatura = table.Column<string>(type: "text", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_UnidadeMedida", x => x.Id);
+                });
         }
 
         /// <inheritdoc />
@@ -46,6 +60,9 @@ namespace SIGEDESP_PI.Migrations
 
             migrationBuilder.DropTable(
                 name: "TipoDespesa");
+
+            migrationBuilder.DropTable(
+                name: "UnidadeMedida");
         }
     }
 }
