@@ -54,6 +54,27 @@ namespace SIGEDESP_PI.Migrations
 
                     b.ToTable("TipoDespesa");
                 });
+
+            modelBuilder.Entity("SIGEDESP_PI.Models.UnidadeMedidaModel", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Abreviatura")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("Descricao")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("UnidadeMedida");
+                });
 #pragma warning restore 612, 618
         }
     }

@@ -1,0 +1,39 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@model IEnumerable<UnidadeMedidaModel>
+
+<div class="container">
+    <div class="d-flex justify-content-between align-items-center mb-5">
+        <h1>Unidade de Medida</h1>
+        <a class="btn btn-success mx-2" asp-controller="UnidadeMedida" asp-action="Cadastrar">Cadastrar Unidade de Medida</a>
+    </div>
+
+    <table class="table table-striped table-dark">
+        <thead>
+            <tr>
+                <th scope="col">Descricao</th>
+                <th scope="col">Abreviatura</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model != null)
+            {
+                @foreach (var unidadeMedida in Model)
+                {
+                    <tr>
+                        <th scope="row">@unidadeMedida.Descricao</th>
+                        <th scope="row">@unidadeMedida.Abreviatura</th>
+                        <td>
+                            <a asp-controller="UnidadeMedida" asp-action="Editar" asp-route-id="@unidadeMedida.Id" class="btn btn-warning mx-2">Editar</a>
+                            <a asp-controller="UnidadeMedida" asp-action="Excluir" asp-route-id="@unidadeMedida.Id" class="btn btn-danger mx-2">Excluir</a>
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>

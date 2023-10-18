@@ -10,5 +10,6 @@ namespace SIGEDESP_PI.Data
 
         public DbSet<InstituicaoModel> Instituicao { get; set; }
         public DbSet<TipoDespesaModel> TipoDespesa { get; set; }
+        public DbSet<UnidadeMedidaModel> UnidadeMedida { get; set; }
     }
 }
