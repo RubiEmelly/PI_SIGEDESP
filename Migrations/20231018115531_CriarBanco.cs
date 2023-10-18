@@ -12,43 +12,43 @@ namespace SIGEDESP_PI.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Instituicao",
+                name: "instituicao",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "integer", nullable: false)
+                    id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    Descricao = table.Column<string>(type: "text", nullable: false)
+                    descricao = table.Column<string>(type: "character varying(100)", maxLength: 100, nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Instituicao", x => x.Id);
+                    table.PrimaryKey("PK_instituicao", x => x.id);
                 });
 
             migrationBuilder.CreateTable(
-                name: "TipoDespesa",
+                name: "tipodespesa",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "integer", nullable: false)
+                    id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    Descricao = table.Column<string>(type: "text", nullable: false)
+                    descricao = table.Column<string>(type: "character varying(100)", maxLength: 100, nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_TipoDespesa", x => x.Id);
+                    table.PrimaryKey("PK_tipodespesa", x => x.id);
                 });
 
             migrationBuilder.CreateTable(
-                name: "UnidadeMedida",
+                name: "unidademedida",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "integer", nullable: false)
+                    id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    Descricao = table.Column<string>(type: "text", nullable: false),
-                    Abreviatura = table.Column<string>(type: "text", nullable: false)
+                    descricao = table.Column<string>(type: "character varying(100)", maxLength: 100, nullable: false),
+                    abreviatura = table.Column<string>(type: "character varying(20)", maxLength: 20, nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_UnidadeMedida", x => x.Id);
+                    table.PrimaryKey("PK_unidademedida", x => x.id);
                 });
         }
 
@@ -56,13 +56,13 @@ namespace SIGEDESP_PI.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Instituicao");
+                name: "instituicao");
 
             migrationBuilder.DropTable(
-                name: "TipoDespesa");
+                name: "tipodespesa");
 
             migrationBuilder.DropTable(
-                name: "UnidadeMedida");
+                name: "unidademedida");
         }
     }
 }
