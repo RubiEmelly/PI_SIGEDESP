@@ -11,7 +11,7 @@ using SIGEDESP_PI.Data;
 namespace SIGEDESP_PI.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20231009154428_CriarBanco")]
+    [Migration("20231018115531_CriarBanco")]
     partial class CriarBanco
     {
         /// <inheritdoc />
@@ -28,34 +28,66 @@ namespace SIGEDESP_PI.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
+                        .HasColumnType("integer")
+                        .HasColumnName("id");
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Descricao")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasMaxLength(100)
+                        .HasColumnType("character varying(100)")
+                        .HasColumnName("descricao");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Instituicao");
+                    b.ToTable("instituicao");
                 });
 
             modelBuilder.Entity("SIGEDESP_PI.Models.TipoDespesaModel", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
+                        .HasColumnType("integer")
+                        .HasColumnName("id");
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Descricao")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasMaxLength(100)
+                        .HasColumnType("character varying(100)")
+                        .HasColumnName("descricao");
 
                     b.HasKey("Id");
 
-                    b.ToTable("TipoDespesa");
+                    b.ToTable("tipodespesa");
+                });
+
+            modelBuilder.Entity("SIGEDESP_PI.Models.UnidadeMedidaModel", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasColumnName("id");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Abreviatura")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("character varying(20)")
+                        .HasColumnName("abreviatura");
+
+                    b.Property<string>("Descricao")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("character varying(100)")
+                        .HasColumnName("descricao");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("unidademedida");
                 });
 #pragma warning restore 612, 618
         }
