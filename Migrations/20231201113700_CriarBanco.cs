@@ -6,7 +6,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace SIGEDESP_PI.Migrations
 {
     /// <inheritdoc />
-    public partial class criarbanco : Migration
+    public partial class CriarBanco : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -38,6 +38,19 @@ namespace SIGEDESP_PI.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "unidadeconsumidora",
+                columns: table => new
+                {
+                    id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    codigouc = table.Column<int>(type: "integer", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_unidadeconsumidora", x => x.id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "unidademedida",
                 columns: table => new
                 {
@@ -60,6 +73,9 @@ namespace SIGEDESP_PI.Migrations
 
             migrationBuilder.DropTable(
                 name: "tipodespesa");
+
+            migrationBuilder.DropTable(
+                name: "unidadeconsumidora");
 
             migrationBuilder.DropTable(
                 name: "unidademedida");

@@ -1,0 +1,25 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+@model UnidadeConsumidoraModel
+@{
+    ViewData["title"] = "Excluir Unidade Consumidora";
+}
+
+<div class="container bg-light p-5 rounded-5">
+
+    <form method="post" asp-controller="UnidadeConsumidora" asp-action="Excluir">
+        <input type="hidden" asp-formaction="Id" />
+        <div class="form-group">
+            <label for="CodigoUC" class="text-dark">Código Unidade Consumidora</label>
+            <input type="text" class="form-control" asp-for="CodigoUC" disabled id="CodigoUC" placeholder="Qual é o código da Unidade Consumidora?">
+            <span class="text-danger" asp-validation-for="CodigoUC"></span>
+        </div>
+
+        <div class="d-flex gap-5 mt-5">
+            <button type="submit" class="btn btn-success w-50">Confirma a exclusão</button>
+            <a class="btn btn-primary w-50" asp-controller="UnidadeConsumidora" asp-action="Index">Voltar</a>
+        </div>
+    </form>
+</div>

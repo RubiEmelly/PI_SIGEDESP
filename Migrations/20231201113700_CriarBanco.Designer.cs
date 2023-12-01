@@ -11,8 +11,8 @@ using SIGEDESP_PI.Data;
 namespace SIGEDESP_PI.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20231130170733_criarbanco")]
-    partial class criarbanco
+    [Migration("20231201113700_CriarBanco")]
+    partial class CriarBanco
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -62,6 +62,24 @@ namespace SIGEDESP_PI.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("tipodespesa");
+                });
+
+            modelBuilder.Entity("SIGEDESP_PI.Models.UnidadeConsumidoraModel", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasColumnName("id");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("CodigoUC")
+                        .HasColumnType("integer")
+                        .HasColumnName("codigouc");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("unidadeconsumidora");
                 });
 
             modelBuilder.Entity("SIGEDESP_PI.Models.UnidadeMedidaModel", b =>
