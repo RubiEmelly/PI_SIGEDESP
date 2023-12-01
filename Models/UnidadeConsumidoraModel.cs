@@ -14,7 +14,5 @@ public class UnidadeConsumidoraModel
     [Column("codigouc")]
     [Required(ErrorMessage = "O código da unidade consumidora deve ser informada")]
     [Display(Name = "Código Unidade Consumidora")]
-    [MinLength(1, ErrorMessage = "Descrição deve ter no mínimo {1} caracteres")]
-    [MaxLength(100, ErrorMessage = "Descrição pode exceder {1} caracteres")]
     public int CodigoUC { get; set; }
 }

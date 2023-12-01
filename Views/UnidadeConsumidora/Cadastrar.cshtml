@@ -4,7 +4,7 @@
 
 @model UnidadeConsumidoraModel
 @{
-    ViewData["title"] = "Cadastrar UnidadeConsumidora";
+    ViewData["title"] = "Cadastrar Unidade Consumidora";
 }
 
 <div class="container bg-light p-5 rounded-5">
@@ -12,7 +12,7 @@
     <form method="post" asp-controller="UnidadeConsumidora" asp-action="Cadastrar">
         <div class="form-group">
             <label for="CodigoUC" class="text-dark">Código Unidade Consumidora</label>
-            <input type="text" class="form-control" asp-for="CodigoUC" id="CodigoUC" placeholder="Qual é o código da Unidade Consumidora?">
+            <input type="number" min="1" class="form-control" asp-for="CodigoUC" id="CodigoUC" placeholder="Qual é o código da Unidade Consumidora?">
             <span class="text-danger" asp-validation-for="CodigoUC"></span>
         </div>
 
